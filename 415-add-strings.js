@@ -2,7 +2,6 @@
 Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 
 Note:
-
 The length of both num1 and num2 is < 5100.
 Both num1 and num2 contains only digits 0-9.
 Both num1 and num2 does not contain any leading zero.
@@ -14,7 +13,6 @@ You must not use any built-in BigInteger library or convert the inputs to intege
   12
 [1,0]
 
-
 convert a1 to a string arr
 convert a2 to a string arr
 
@@ -24,15 +22,13 @@ map the values from 0 to 9
 '1', 1
 .....
 
-
 going from n to 0
-	
 */
 
 
 
 function countNode(node,low,high){
-  let count = 0
+  let count = 0;
   
   function countNodeHelper(node,low,high)
   {
@@ -43,7 +39,6 @@ function countNode(node,low,high){
     
      countNodeHelper(node.left,low,high,count)
      countNodeHelper(node.right,low,high,count)
-    
   }
   
   countNodeHelper(node,low,high)

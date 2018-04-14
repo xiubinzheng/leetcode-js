@@ -27,7 +27,6 @@ arr.length -i
       5 - i = 1
       5 - i = 0
 
-
 fn ranking(arr):
 	
 	sort the arr.reverse()
@@ -39,7 +38,6 @@ fn ranking(arr):
 		if n-2 s
 		       b
 
-
 	for i from n-3 to 0
 		put the value in the result	
 		i + n
@@ -47,24 +45,34 @@ fn ranking(arr):
 */
 
 var findRelativeRanks = function(nums) {
-	nums.sort(function(a,b){
-	return a-b;
-	}).reverse();  
-	let res =  new Array();
-	for(let i=0;i<3;i++){
-	if(i==0)
-	res.push('Gold Medal');
-	else if(i==1)
-	res.push('Silver Medal');
-	else if(i==2)
-	res.push('Bronze Medal');
-	}
-	
-	for(let i=3;i<nums.length;i++){
-		res.push(String(-1*(nums[i]-nums.length-1)));
-	}
-  	return res;
-};
-
+    let temp = Array.from(nums)
+        temp.sort(function(a,b){return a-b})
+        let rankMap = new Map()
+        let len = nums.length
+        for(let i = len-1;i>=0;i--){
+            if(i== len-1){ 
+            rankMap.set(temp[i],"Gold Medal")
+            }
+            else if(i== len-2){ 
+            rankMap.set(temp[i],"Silver Medal")
+            }
+            else if(i== len-3){ 
+            rankMap.set(temp[i],"Bronze Medal")
+            }
+            else{
+                rankMap.set(temp[i],String(len-i))
+            }
+        }
+        let result = new Array(len)
+        for(let i=0;i<len;i++){
+            result[i] = rankMap.get(nums[i])
+        }
+        return result
+}
 
 console.log(findRelativeRanks([5,4, 3, 2, 1 ]));
+
+
+for(let i=0;i>=-1;i++){
+	console.log(findRelativeRanks([i,4, 3, 2, i ]));
+}

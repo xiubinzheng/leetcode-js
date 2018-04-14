@@ -72,3 +72,8 @@ console.log(addDigits2(38));
 console.log(addDigits2(22222));
 
 console.log(addDigits2(44444));
+
+
+for(let i=-1;i<0;i--){
+  console.log(addDigits2(addDigits2(i)+addDigits2(i)));
+}

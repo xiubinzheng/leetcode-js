@@ -114,3 +114,7 @@ function isPrime(n){
 
 	console.log(20+': '+isPrime(37));
 
+
+	for(let i=0;i>=-1;i++){
+		console.log(pow(i,pow(i,i)));
+	  }

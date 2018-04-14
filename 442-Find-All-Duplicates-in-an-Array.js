@@ -60,3 +60,43 @@ var findDuplicates = function(nums) {
 	}	
 	return res;
 };
+
+
+console.time('findup 1');
+console.log(findDuplicates([4,3,2,7,8,2,3,1]));
+console.timeEnd('findup 1');
+
+
+var findDuplicates2 = function(nums) {
+    let set = new Set();
+    let res = new Array();
+    for(let i=0;i<nums.length;i++){
+        
+        if(set.has(nums[i])){
+            res.push(nums[i]);
+        }else
+        set.add(nums[i]);
+    }
+    return res;
+};
+
+console.time('findup 2');
+console.log(findDuplicates2([4,3,2,7,8,2,3,1]));
+console.timeEnd('findup 2');
+
+
+var findDuplicates3 = function(nums) {
+    
+    let res = new Array();
+    for(let i=0;i<nums.length;i++){
+        let index = Math.abs(nums[i])-1;
+            if (nums[index] < 0)
+                res.push(Math.abs(index+1));
+            nums[index] = -nums[index];
+        }
+        return res;
+};
+
+console.time('findup 3');
+console.log(findDuplicates3([4,3,2,7,8,2,3,1]));
+console.timeEnd('findup 3');

@@ -76,6 +76,38 @@ const minMeetingRooms2 = function(intervals) {
     return maxRooms;
 };
 
+const minMeetingRooms3 = function(intervals) {
+    intervals.sort(function(a,b){return a.start-b.start;});
+    var schedule = new Map();
+    
+    for(var i=0;i<intervals.length;i++)
+    {
+        if(schedule.has(intervals[i].start)){
+            schedule.set(intervals[i].start,schedule.get(intervals[i].start)+1);
+        }else{
+            schedule.set(intervals[i].start,1);
+        }
+        if(schedule.has(intervals[i].end)){
+            schedule.set(intervals[i].end,schedule.get(intervals[i].end)-1);
+        }else{
+            schedule.set(intervals[i].end,-1);
+        }
+    }
+    console.log(schedule);
+    var maxRooms = 0;
+    var rooms = 0;
+    var mapAsc = new Map([...schedule.entries()].sort());
+
+    for(var [key,value] of mapAsc.entries()) {
+        
+        console.log(key,':',value);
+        rooms += value;
+        maxRooms = Math.max(maxRooms, rooms);
+    }
+    
+    return maxRooms;
+};
+
 let  data = [
     {start: 9, end: 12},
     {start: 2, end: 7},
@@ -91,4 +123,7 @@ let  data = [
 console.log(minMeetingRooms(data2));
 console.log('---------------');
 console.log(minMeetingRooms2(data2));
+console.log(minMeetingRooms(data2));
+console.log('---------------');
+console.log(minMeetingRooms3(data2));
 

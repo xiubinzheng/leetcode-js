@@ -27,22 +27,21 @@ going from n to 0
 
 
 
-function countNode(node,low,high){
+function countNode(node, low, high) {
   let count = 0;
-  
-  function countNodeHelper(node,low,high)
-  {
-    if(node===null)
-      return 
-    if(node.val >=low || node.val <=high)
-        count++
-    
-     countNodeHelper(node.left,low,high,count)
-     countNodeHelper(node.right,low,high,count)
+
+  function countNodeHelper(node, low, high) {
+    if (node === null)
+      return
+    if (node.val >= low || node.val <= high)
+      count++
+
+      countNodeHelper(node.left, low, high, count)
+    countNodeHelper(node.right, low, high, count)
   }
-  
-  countNodeHelper(node,low,high)
-  
+
+  countNodeHelper(node, low, high)
+
   return count
 }
 
@@ -50,9 +49,18 @@ function countNode(node,low,high){
 
 
 let test = {
-  left: {left:null,right:null,val:1},
-  right:{left:null,right:null,val:2},val:3
-  
+  left: {
+    left: null,
+    right: null,
+    val: 1
+  },
+  right: {
+    left: null,
+    right: null,
+    val: 2
+  },
+  val: 3
+
 }
 
 console.log(test);
@@ -63,7 +71,7 @@ console.log(test.right);
 
 
 
-console.log(countNode(test,1,3))
+console.log(countNode(test, 1, 3));
 
 /*
 LRU cache
@@ -72,10 +80,6 @@ picture your amazon past
 
 
 
-
+ 
 
 */
-
-
-
-

@@ -51,21 +51,17 @@ nums = [0, 1, 0, 3, 12]
 [1]
 */
 
-var moveZeroes = function(nums) {
+var moveZeroes = function (nums) {
 	let j = 0
-	for(let i=0;i<nums.length;i++)
-	{
+	for (let i = 0; i < nums.length; i++) {
 		console.log(nums)
-		if(nums[i]!==0){
+		if (nums[i] !== 0) {
 			let temp = nums[i]
-			nums[i]= nums[j]
-			nums[j]  = temp
+			nums[i] = nums[j]
+			nums[j] = temp
 			j++
 		}
 	}
 
-  
+
 };
-
-
-

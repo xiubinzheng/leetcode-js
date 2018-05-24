@@ -46,27 +46,21 @@ Return:
 1,2,f, 4,buzz,6,7,8,fizz,buzz,11,12,13,14,fizzbuzz  
 */
 
-var fizzBuzz = function(n) {
+var fizzBuzz = function (n) {
 	let res = new Array();
-	for(let i=1;i<=n;i++)
-    {
-	 if(i%15===0){
-	res.push('FizzBuzz');
+	for (let i = 1; i <= n; i++) {
+		if (i % 15 === 0) {
+			res.push('FizzBuzz');
+		} else
+
+		if (i % 3 === 0) {
+			res.push('Fizz');
+		} else if (i % 5 === 0) {
+			res.push('Buzz');
+		} else {
+			res.push(i);
+		}
 	}
-	else 
-	
-	if(i %3 ===0){
-	res.push('Fizz');
-	}
-	else if(i%5===0){
-	res.push('Buzz');
-	}
-	else
-      {
-	res.push(i);	
-	}
-    }
-	
 	return res;
 };
 

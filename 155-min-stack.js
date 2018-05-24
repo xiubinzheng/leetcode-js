@@ -21,32 +21,34 @@ minStack.getMin();   --> Returns -2.
 */
 
 
-class MinStack{
-    constructor(){
+class MinStack {
+    constructor() {
         this.min = Number.MAX_VALUE;
         this.stack = new Array();
     }
-    
-    push(x){
-        if(x<=this.min){
+
+    push(x) {
+        if (x <= this.min) {
             this.stack.push(this.min);
             this.min = x;
         }
         this.stack.push(x);
     }
-    
-    pop(){
-        if(this.stack.pop()===this.min)this.min =this.stack.pop();
-        
+
+    pop() {
+        if (this.stack.pop() === this.min) this.min = this.stack.pop();
     }
-    
-    top(){
-        return this.stack[this.stack.length-1];
+
+    top() {
+        return this.stack[this.stack.length - 1];
     }
-    
-    getMin(){
+
+    getMin() {
         return this.min;
     }
-    
-    
 }
+
+
+let myminstack = new MinStack();
+console.log(myminstack.getMin());
+console.log(myminstack.min);

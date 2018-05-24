@@ -48,24 +48,23 @@ Output: 5
 */
 
 
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
 
-	let maxprofit = 0, minprice = Number.MAX_VALUE
+	let maxprofit = 0,
+		minprice = Number.MAX_VALUE
 
-	for(let i=0;i<prices.length;i++){
-	if(prices[i]<minprice){
-		minprice = prices[i]
+	for (let i = 0; i < prices.length; i++) {
+		if (prices[i] < minprice) {
+			minprice = prices[i]
 		}
-	
-	if(maxprofit < prices[i]-minprice){
-		maxprofit = prices[i]-minprice
+
+		if (maxprofit < prices[i] - minprice) {
+			maxprofit = prices[i] - minprice
+		}
+
 	}
-	
-	}
-	return maxprofit    
+	return maxprofit
 };
 
 
-console.log(maxProfit([7,1,5,3,6,4]))
-
-
+console.log(maxProfit([7, 1, 5, 3, 6, 4]))
